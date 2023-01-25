@@ -6,28 +6,29 @@
 
 ## Как собрать и запустить проект
 
-1. Скачать
-    ```
-    git clone https://github.com/Asubuhi824lia/AVR-counting.git
-    ```
-    или
-    ```
-    git clone git@github.com:Asubuhi824lia/AVR-counting.git
-    ```
-    или
-    ```
-    gh repo clone Asubuhi824lia/AVR-counting
-    ```
-2. Открыть терминал.
-3. Ввести поочерёдно следующие команды:
-    ```
-    npm install package.json
-    npm run dev
-    ```
-    или
-    ```
-    npm i package.json
-    npm run dev
-    ```
+### 1. Клонирование проекта
+```
+git clone https://github.com/Asubuhi824lia/AVR-counting.git
+```
+или
+```
+git clone git@github.com:Asubuhi824lia/AVR-counting.git
+```
+или
+```
+gh repo clone Asubuhi824lia/AVR-counting
+```
+### 2. Сборка
+```
+npm install package.json
+```
+или
+```
+npm i package.json
+```
 
-4. Перейти по появившейся ссылке в консоли (Ctrl + ЛКМ).
+### 3. Запуск
+```
+npm run dev
+```
+Перейти по появившейся ссылке в консоли (Ctrl + ЛКМ).
