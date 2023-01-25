@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-size: 22px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    height: 97vh;
+}
+
+.content {
+    margin: 5px auto;
+    width: 60vw;
+}
+
+.textarea {
+    padding: 15px;
+    width: 100%;
+    height: 85%;
+    resize: none;
+}
+
+.button {
+    width: 100%;
+    height: 15%;
+    min-height: 30px;
+}
