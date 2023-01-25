@@ -41,23 +41,12 @@ irq_adc_conversion_complete:
 
 ### Клонирование проекта
 ```
-git clone https://github.com/Asubuhi824lia/AVR-counting.git
-```
-или
-```
 git clone git@github.com:Asubuhi824lia/AVR-counting.git
 ```
-или
-```
-gh repo clone Asubuhi824lia/AVR-counting
-```
+
 ### Сборка
 ```
 npm install package.json
-```
-или
-```
-npm i package.json
 ```
 
 ### Запуск
