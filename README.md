@@ -1,4 +1,4 @@
-## Анализатор кода на ассемблере для AVR
+## Анализатор кода для AVR ассемблера
 
 Проект предназначен для людей, которые хотят проверить свой код на ассемблере на число clocks и opcode.
 
@@ -7,13 +7,27 @@
 ## Как собрать и запустить проект
 
 1. Скачать
-    - как zip-архив, после чего разархивировать;
-    - через команду git clone; 
-    - используя иные возможности, даруемые кнопкой "<> Code".
+    ```
+    git clone https://github.com/Asubuhi824lia/AVR-counting.git
+    ```
+    или
+    ```
+    git clone git@github.com:Asubuhi824lia/AVR-counting.git
+    ```
+    или
+    ```
+    gh repo clone Asubuhi824lia/AVR-counting
+    ```
 2. Открыть терминал.
 3. Ввести поочерёдно следующие команды:
-```
-npm i package.json ИЛИ npm install package.json
-npm run dev
-```
+    ```
+    npm install package.json
+    npm run dev
+    ```
+    или
+    ```
+    npm i package.json
+    npm run dev
+    ```
+
 4. Перейти по появившейся ссылке в консоли (Ctrl + ЛКМ).
