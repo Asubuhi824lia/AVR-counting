@@ -27,8 +27,8 @@ getInstrSet();
 enableTab('textarea');
 enableGroupTab('textarea')
 
-let button = document.getElementsByClassName('button')[0];
-button.addEventListener('click', () => { addNums(json) });
+let textarea = document.getElementById('textarea');
+textarea.addEventListener('input', () => { addNums(json) });
 
 
 // Base functions
@@ -36,22 +36,23 @@ button.addEventListener('click', () => { addNums(json) });
 function addNums(json) {
 
     let text = getText();
-    let completedText = completeStrings(text, JSON.parse(json));
-    output(completedText);
+    let {clocks, sizes} = findClocksSizes(text, JSON.parse(json));
+    output(clocks, sizes);
 
 }
 
 function getText() {
-    let textarea = document.getElementsByClassName("textarea")[0];
+    let textarea = document.getElementById("textarea");
     return textarea.value;
 }
 
-function completeStrings(text, json) {
+function findClocksSizes(text, json) {
     let strings = text.split('\n');
     // console.log(strings);
 
-    //Find the furthest pos in line for clocks
-    const pos = findClocksPos(strings);
+
+    let clocks = {};
+    let sizes = {};
     for (let str in strings) {
         let line = splitLine(strings[str]);
 
@@ -63,36 +64,25 @@ function completeStrings(text, json) {
                 break;
             }
         }
-        // console.log(instr)
+        console.log(instr)
 
 
+        /* Count CLOCKS & SIZES */
+        // find clocks
         for (let inst in json) {
             if (json[inst].command.toLowerCase() == instr) {
-                const isNumeric = n => !isNaN(n);                                          //??
+                const isNumeric = n => !isNaN(n);                            //??
                 if ( !isNumeric(line[line.length-1]) ) {
-                    let len = pos - strings[str].length
-                    strings[str] += " ".repeat(len) + '\t' + json[inst].clocks;
+                    clocks[str] = json[inst].clocks;
+                } else {
+                    clocks[str] = null;
                 }
                 break;
             }
         }
     }
 
-    let newText = strings.join('\n');
-    // console.log(newText);
-
-    return newText;
-}
-
-function findClocksPos(strings) {
-    let pos = 0;
-    
-    for (let string in strings) {
-        let len = strings[string].length;
-        if (len > pos) pos = len;
-    }
-
-    return pos;
+    return {clocks, sizes};
 }
 
 function splitLine(string) {
@@ -107,9 +97,21 @@ function splitLine(string) {
 
 // function checkTabsOrSpaces(line);
 
-function output(completedText) {
-    let textarea = document.getElementsByClassName("textarea")[0];
-    textarea.value = completedText;
+function output(clocks, sizes) {
+    let clocks_field = document.getElementById("clocks");
+    let sizes_field = document.getElementById("sizes");
+
+    // Clear field
+    clocks_field.innerHTML = "";
+
+    //Output updating info
+    for(let c in clocks) {
+        let p = document.createElement('p');
+        p.innerHTML = clocks[c];
+        clocks_field.append(p);
+    }
+
+    console.log()
 }
 
 
