@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
 });
 
 const host = 'localhost';
-const port = 8000;
+const port = 5000;
 server.listen(port, host, (error) => {
     error ? console.log(error) : console.log(`Server is running on http://${host}:${port}`);
 });
