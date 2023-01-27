@@ -50,8 +50,10 @@ function findClocksSizes(text, json) {
     let strings = text.split('\n');
     // console.log(strings);
 
+    console.log(strings)
 
     let clocks = {};
+    clocks.length = strings.length;
     let sizes = {};
     for (let str in strings) {
         let line = splitLine(strings[str]);
@@ -74,9 +76,7 @@ function findClocksSizes(text, json) {
                 const isNumeric = n => !isNaN(n);                            //??
                 if ( !isNumeric(line[line.length-1]) ) {
                     clocks[str] = json[inst].clocks;
-                } else {
-                    clocks[str] = null;
-                }
+                } 
                 break;
             }
         }
@@ -105,13 +105,16 @@ function output(clocks, sizes) {
     clocks_field.innerHTML = "";
 
     //Output updating info
-    for(let c in clocks) {
-        let p = document.createElement('p');
-        p.innerHTML = clocks[c];
-        clocks_field.append(p);
+    for(let c = 0; c < clocks.length; c++) {
+        if (clocks[c]) {
+            let p = document.createElement('p');
+            p.innerHTML = clocks[c];
+            clocks_field.append(p);
+        } else {
+            let br = document.createElement('br');
+            clocks_field.append(br);
+        }
     }
-
-    console.log()
 }
 
 
