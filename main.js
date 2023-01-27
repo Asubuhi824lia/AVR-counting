@@ -108,7 +108,17 @@ function output(clocks, sizes) {
     for(let c = 0; c < clocks.length; c++) {
         if (clocks[c]) {
             let p = document.createElement('p');
-            p.innerHTML = clocks[c];
+            switch (clocks[c]) {
+                case "1":
+                    p.innerHTML = "<span style='color: green;'>" + clocks[c] + "</span>";
+                    break;
+                case "2":
+                    p.innerHTML = "<span style='color: #ffc107;'>" + clocks[c] + "</span>";
+                    break;
+                default:
+                    p.innerHTML = "<span style='color: red;'>" + clocks[c] + "</span>";
+            }
+            
             clocks_field.append(p);
         } else {
             let p = document.createElement('p');
