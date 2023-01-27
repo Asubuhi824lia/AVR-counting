@@ -49,3 +49,10 @@
 .textarea {
     width: 100%;
 }
+
+
+/* Syncronize line-height of codefield and clocksfield */
+
+#textarea, p {
+    line-height: 30px;
+}

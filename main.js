@@ -111,8 +111,9 @@ function output(clocks, sizes) {
             p.innerHTML = clocks[c];
             clocks_field.append(p);
         } else {
-            let br = document.createElement('br');
-            clocks_field.append(br);
+            let p = document.createElement('p');
+            p.innerHTML = "&shy";
+            clocks_field.append(p);
         }
     }
 }
