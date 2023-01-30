@@ -7,16 +7,15 @@
 }
 
 .wrapper {
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     height: 97vh;
 }
 
 .content {
-    margin: 5px auto;
-    width: 60vw;
+    padding: 25px;
+    width: 100%;
     height: 85%;
     display: flex;
     flex-direction: row;
