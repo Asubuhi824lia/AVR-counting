@@ -9,6 +9,7 @@
 .wrapper {
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     height: 97vh;
 }
@@ -28,11 +29,8 @@
 .clocks, .sizes {
     width: 150px;
     height: 100%;
-    text-align: center;
-}
-
-.clocks {
-    margin: 0 20px;
+    display: none;
+    margin-left: 20px;
 }
 
 .value, #textarea {
@@ -49,6 +47,23 @@
 
 .textarea {
     width: 100%;
+}
+
+.checkboxes {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+    margin: 0 25px 0 10px;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 

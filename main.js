@@ -33,8 +33,25 @@ let textarea = document.getElementById('textarea');
 textarea.addEventListener('input', () => { addNums(json) });
 
 
+// JQuery-piece
 $('.linked').scroll(function() {
     $('.linked').scrollTop($(this).scrollTop());
+})
+
+$('#clocks-show').click(function() {
+    if ($('.clocks').css('display') != 'none') {
+        $('.clocks').css('display', 'none');
+    } else {
+        $('.clocks').css('display', 'block');
+    }
+})
+
+$('#sizes-show').click(function() {
+    if ($('.sizes').css('display') != 'none') {
+        $('.sizes').css('display', 'none');
+    } else {
+        $('.sizes').css('display', 'block');
+    }
 })
 
 
