@@ -27,6 +27,8 @@ getInstrSet();
 enableTab('textarea');
 enableGroupTab('textarea')
 
+const isNumeric = n => !isNaN(n);
+
 let textarea = document.getElementById('textarea');
 textarea.addEventListener('input', () => { addNums(json) });
 
@@ -78,7 +80,6 @@ function findClocksSizes(text, json) {
         // find clocks
         for (let inst in json) {
             if (json[inst].command.toLowerCase() == instr) {
-                const isNumeric = n => !isNaN(n);                            //??
                 if ( !isNumeric(line[line.length-1]) ) {
                     clocks[str] = json[inst].clocks;
                 } 
@@ -113,15 +114,19 @@ function output(clocks, sizes) {
     for(let c = 0; c < clocks.length; c++) {
         if (clocks[c]) {
             let p = document.createElement('p');
-            switch (clocks[c]) {
-                case "1":
-                    p.innerHTML = "<span style='color: green;'>" + clocks[c] + "</span>";
-                    break;
-                case "2":
-                    p.innerHTML = "<span style='color: #ffc107;'>" + clocks[c] + "</span>";
-                    break;
-                default:
-                    p.innerHTML = "<span style='color: red;'>" + clocks[c] + "</span>";
+            if (clocks[c].indexOf('/') == -1) {
+                p.innerHTML = defineColor(clocks[c]);
+            } else {
+                let str = "";
+                clocks[c] = clocks[c].split(' ');
+                for (let s = 0; s < clocks[c].length; s++) {
+                    if (isNumeric(clocks[c][s])) {
+                        console.log();
+                        str += defineColor(clocks[c][s]);
+                        if (s != clocks[c].length-1) str += " / ";
+                    }
+                }
+                p.innerHTML = str;
             }
             
             clocks_field.append(p);
@@ -133,7 +138,16 @@ function output(clocks, sizes) {
     }
 }
 
-
+function defineColor(clocks) {
+    switch (clocks) {
+        case "1":
+            return "<span style='color: green;'>" + clocks + "</span>";
+        case "2":
+            return "<span style='color: #ffc107;'>" + clocks + "</span>";
+        default:
+            return "<span style='color: red;'>" + clocks + "</span>";
+    }
+}
 
 // Added functions
 
