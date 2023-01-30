@@ -31,6 +31,11 @@ let textarea = document.getElementById('textarea');
 textarea.addEventListener('input', () => { addNums(json) });
 
 
+$('.linked').scroll(function() {
+    $('.linked').scrollTop($(this).scrollTop());
+})
+
+
 // Base functions
 
 function addNums(json) {
@@ -155,6 +160,8 @@ function enableTab(id) {
     };
 }
 
+
+// UNUSED
 function enableGroupTab(id) {
     const el = document.getElementById(id);
     el.onselect = function(e) {
