@@ -37,11 +37,12 @@ irq_tim_0_ovf:
 irq_adc_conversion_complete:
     reti                                              4 / 5
 ```
+
 ## Как собрать и запустить проект
 
 ### Клонирование проекта
 ```
-git clone git@github.com:Asubuhi824lia/AVR-counting.git
+git clone https://github.com/Asubuhi824lia/AVR-counting.git
 ```
 
 ### Сборка
