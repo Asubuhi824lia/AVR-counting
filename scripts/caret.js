@@ -32,7 +32,7 @@ function getPosInRow(el) {
     var caret = getCaret(el);
     var text = el.value.substr(0, caret).replace(/^(.*[\n\r])*([^\n\r]*)$/, '$2');
     
-    console.log(text);
+    // console.log(text);
     return text.length;
 }
 
@@ -44,6 +44,6 @@ function getPosInCol(el) {
     for (let s = 0; s < text.length; s++)
         if (text[s] == '\n') lines_cnt++;
 
-    console.log(lines_cnt);
+    // console.log(lines_cnt);
     return lines_cnt;
 }

@@ -177,6 +177,7 @@ function output(clocks, sizes) {
         {
             let p = document.createElement('p');
             p.innerHTML = "&shy";
+            p.classList.add("line");
             backlight_field.append(p);
         }
     }
