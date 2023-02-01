@@ -93,7 +93,7 @@ function findClocksSizes(text, json) {
                 break;
             }
         }
-        console.log(instr)
+        // console.log(instr)
 
 
         /* Count CLOCKS & SIZES */
@@ -114,7 +114,7 @@ function findClocksSizes(text, json) {
 function splitLine(string) {
     if (string.indexOf('\t') == -1) {
         let space = min_tab_space + min_tab_space;
-        console.log(space);
+        // console.log(space);
         return string.split(space);
     } else {
         return string.split('\t');
@@ -127,20 +127,30 @@ function output(clocks, sizes) {
     let clocks_field = document.getElementById("clocks");
     let sizes_field = document.getElementById("sizes");
 
+    let backlight_field = document.getElementById("backlight");
+
     // Clear field
     clocks_field.innerHTML = "";
+    sizes_field.innerHTML = "";
+    backlight_field.innerHTML = "";
 
     //Output updating info
-    for(let c = 0; c < clocks.length; c++) {
-        if (clocks[c]) {
+    for(let c = 0; c < clocks.length; c++) 
+    {
+        if (clocks[c]) 
+        {
             let p = document.createElement('p');
-            if (clocks[c].indexOf('/') == -1) {
+            if (clocks[c].indexOf('/') == -1)
+            {
                 p.innerHTML = defineColor(clocks[c]);
-            } else {
+            } else 
+            {
                 let str = "";
                 clocks[c] = clocks[c].split(' ');
-                for (let s = 0; s < clocks[c].length; s++) {
-                    if (isNumeric(clocks[c][s])) {
+                for (let s = 0; s < clocks[c].length; s++) 
+                {
+                    if (isNumeric(clocks[c][s])) 
+                    {
                         console.log();
                         str += defineColor(clocks[c][s]);
                         if (s != clocks[c].length-1) str += " / ";
@@ -150,16 +160,31 @@ function output(clocks, sizes) {
             }
             
             clocks_field.append(p);
-        } else {
+        } else 
+        {
             let p = document.createElement('p');
             p.innerHTML = "&shy";
             clocks_field.append(p);
+        }
+
+        {
+            let p = document.createElement('p');
+            p.innerHTML = "&shy";
+            sizes_field.append(p);
+        }
+
+        // add line in backlight
+        {
+            let p = document.createElement('p');
+            p.innerHTML = "&shy";
+            backlight_field.append(p);
         }
     }
 }
 
 function defineColor(clocks) {
-    switch (clocks) {
+    switch (clocks) 
+    {
         case "1":
             return "<span style='color: green;'>" + clocks + "</span>";
         case "2":
