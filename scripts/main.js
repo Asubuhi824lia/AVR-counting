@@ -29,7 +29,7 @@ enableGroupTab('textarea')
 
 /* Secondary mini-functions */
 const isNumeric = n => !isNaN(n);
-////
+///
 
 let textarea = document.getElementById('textarea');
 textarea.addEventListener('input', () => { addNums(json) });
@@ -56,6 +56,8 @@ $('#sizes-show').click(function() {
         $('.sizes').css('display', 'flex');
     }
 })
+
+$('.line').css('line-height', $('#textarea').css('line-height') );
 
 
 // Base functions
@@ -167,6 +169,7 @@ function output(clocks, sizes) {
             clocks_field.append(p);
         }
 
+        // add line in sizes
         {
             let p = document.createElement('p');
             p.innerHTML = "&shy";
@@ -178,6 +181,7 @@ function output(clocks, sizes) {
             let p = document.createElement('p');
             p.innerHTML = "&shy";
             p.classList.add("line");
+            if(c == selectedLine.pos) p.classList.add("selected");
             backlight_field.append(p);
         }
     }
