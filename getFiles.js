@@ -59,8 +59,20 @@ function getScript(req, res) {
     const jsPath = (script) => path.resolve(__dirname, `${script}.js`);
     let getPath = "";
 
-    getPath = jsPath('main');
-    // console.log(getPath);
+    switch(req.url) {
+        case '/scripts/main.js':
+            getPath = jsPath("scripts/main");
+            res.statusCode = 200;
+            break;
+        case '/scripts/caret.js':
+            getPath = jsPath("scripts/caret");
+            res.statusCode = 200;
+            break;
+        default:
+            res.statusCode = 404;
+            break;
+    }
+    // console.log(getPath)
 
     res.setHeader('Content-Type', 'text/javascipt');
     fs.readFile(getPath, (err, data) => {

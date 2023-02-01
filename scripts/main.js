@@ -27,7 +27,9 @@ getInstrSet();
 enableTab('textarea');
 enableGroupTab('textarea')
 
+/* Secondary mini-functions */
 const isNumeric = n => !isNaN(n);
+////
 
 let textarea = document.getElementById('textarea');
 textarea.addEventListener('input', () => { addNums(json) });

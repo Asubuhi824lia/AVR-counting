@@ -39,6 +39,7 @@
 
 #textarea {
     resize: none;
+    line-height: 30px;
 }
 
 .textarea {
