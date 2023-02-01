@@ -68,6 +68,10 @@ function getScript(req, res) {
             getPath = jsPath("scripts/caret");
             res.statusCode = 200;
             break;
+        case '/scripts/backlight.js':
+            getPath = jsPath("scripts/backlight");
+            res.statusCode = 200;
+            break;
         default:
             res.statusCode = 404;
             break;

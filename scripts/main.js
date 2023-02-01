@@ -17,7 +17,7 @@ async function getInstrSet() {
     let response = await fetch('http://localhost:8000/instructions-set.json')
                                     .then(data => data.text())      // if 1 instr - you can not write "return"
                                     .then(data => {
-                                        console.log(data);
+                                        // console.log(data);
                                         json = data;
                                     })
                                     .catch(err => console.log(err))
@@ -35,7 +35,8 @@ let textarea = document.getElementById('textarea');
 textarea.addEventListener('input', () => { addNums(json) });
 
 
-// JQuery-piece
+/*       JQuery-piece        */
+// Scrollbars Union
 $('.linked').scroll(function() {
     $('.linked').scrollTop($(this).scrollTop());
 })
@@ -61,13 +62,13 @@ $('#sizes-show').click(function() {
 
 function addNums(json) {
 
-    let text = getText();
+    let text = getField();
     let {clocks, sizes} = findClocksSizes(text, JSON.parse(json));
     output(clocks, sizes);
 
 }
 
-function getText() {
+function getField() {
     let textarea = document.getElementById("textarea");
     return textarea.value;
 }
@@ -168,7 +169,8 @@ function defineColor(clocks) {
     }
 }
 
-// Added functions
+
+// Functions for work with Tabs
 
 function enableTab(id) {
     let el = document.getElementById(id);

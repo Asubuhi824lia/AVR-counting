@@ -12,7 +12,8 @@
         <div class="content">
             <div class="textarea">
                 <label>Your code:</label> 
-                <textarea class = "linked" id="textarea" wrap="off"></textarea>
+                <div id="backlight"></div>
+                <textarea class = "linked" id="textarea" wrap="off" ></textarea>
                 <div class="checkboxes">
                     <label><p>Clocks</p> <input type="checkbox" id="clocks-show"></label>
                     <label><p>Sizes</p> <input type="checkbox" id="sizes-show"></label>
@@ -31,10 +32,26 @@
         </div>
     </div>
 
+
+    <style>
+        #backlight {
+            z-index: 1;
+            position: absolute;
+            background-color: rgb(230, 255, 245);
+        }
+
+        #textarea {
+            z-index: 2;
+            background-color: transparent;
+        }
+    </style>
+
+
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     
     <script src="/scripts/main.js"></script>
     <script src="/scripts/caret.js"></script>
+    <script src="/scripts/backlight.js"></script>
 
 </body>
 </html>
