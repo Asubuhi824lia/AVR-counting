@@ -50,6 +50,13 @@
     flex-direction: column;
 }
 
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
 .checkboxes {
     display: inline-flex;
     flex-direction: row;
@@ -58,11 +65,12 @@
 input[type=checkbox] {
     height: 20px;
     width: 20px;
-    margin: 0 25px 0 10px;
+    margin-left: 10px;
 }
 
 input[id=emptyness] {
     visibility: hidden;
+    margin-top: 15px;
 }
 
 .clocks>label, .sizes>label {
@@ -71,9 +79,11 @@ input[id=emptyness] {
     justify-content: center;
 }
 
-label {
+.checkboxes>label {
     display: flex;
     justify-content: space-between;
+    margin-left: 25px;
+    align-items: center;
 }
 
 
