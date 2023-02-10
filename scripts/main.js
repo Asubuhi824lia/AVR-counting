@@ -86,7 +86,16 @@ $('#file-selector').on('change', (e) => {
     reader.readAsText(selectedFile);
 
     reader.onload = function() {
-        $("#textarea").val(reader.result)
+        if( $("#textarea").val().trim() != '' ) {
+            const isChange = confirm("Вы уверены, что хотите продолжить без сохранения?")
+            if(isChange) {
+                $("#textarea").val(reader.result)
+            } else {
+                $("input[type='file']").val("")
+            }
+        } else {
+            $("#textarea").val(reader.result)
+        }
     };
     
     reader.onerror = function() {
