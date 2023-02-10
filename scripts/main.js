@@ -59,6 +59,9 @@ $('#sizes-show').click(function() {
 
 $('.line').css('line-height', $('#textarea').css('line-height') );
 
+$(".emptyness").css('height', function() {
+    return $(".options").css('height')
+})
 
 // Base functions
 

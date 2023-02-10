@@ -54,7 +54,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+#get-file {
+    display: flex;
+    flex-direction: column;
     margin-top: 15px;
+}
+#get-file>label {
+	color: #666;
+ 	display: block;
+	margin-bottom: 5px;
 }
 
 .checkboxes {
@@ -68,9 +78,8 @@ input[type=checkbox] {
     margin-left: 10px;
 }
 
-input[id=emptyness] {
+.emptyness {
     visibility: hidden;
-    margin-top: 15px;
 }
 
 .clocks>label, .sizes>label {

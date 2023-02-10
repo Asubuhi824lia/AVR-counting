@@ -16,7 +16,10 @@
                 <textarea class = "linked" id="textarea" wrap="off" autofocus></textarea>
                 
                 <div class="options">
-                    <input type="file">
+                    <form action="" id="get-file" method="post" enctype="multipart/form-data">
+                        <label>Файл .S .AS или .ASM:</label>
+                        <input type="file" accept=".s,.S,.asm,.ASM,.as,.AS,.txt">
+                    </form>
                     <div class="checkboxes">
                         <label><p>Clocks</p> <input type="checkbox" id="clocks-show"></label>
                         <label><p>Sizes</p> <input type="checkbox" id="sizes-show"></label>
@@ -26,12 +29,12 @@
             <div class="clocks">
                 <label>Clocks</label>
                 <div class="value linked" id="clocks"></div>
-                <label><p>&shy;</p> <input type="file" id="emptyness"></label>
+                <label><p>&shy;</p> <input type="checkbox" class="emptyness"></label>
             </div>
             <div class="sizes">
                 <label>Sizes</label>
                 <div class="value linked" id="sizes"></div>
-                <label><p>&shy;</p> <input type="file" id="emptyness"></label>
+                <label><p>&shy;</p> <input type="checkbox" class="emptyness"></label>
             </div>
         </div>
     </div>
