@@ -124,13 +124,13 @@ function findClocksSizes(text, json) {
     let strings = text.split('\n');
     // console.log(strings);
 
-    console.log(strings)
-
     let clocks = {};
     clocks.length = strings.length;
     let sizes = {};
     for (let str in strings) {
         let line = splitLine(strings[str]);
+
+        console.log(line)
 
         // Work with tabs before instruction mnemonic
         let instr;
@@ -146,10 +146,9 @@ function findClocksSizes(text, json) {
         /* Count CLOCKS & SIZES */
         // find clocks
         for (let inst in json) {
+            console.log(json[inst].command.toLowerCase())
             if (json[inst].command.toLowerCase() == instr) {
-                if ( !isNumeric(line[line.length-1]) ) {
-                    clocks[str] = json[inst].clocks;
-                } 
+                clocks[str] = json[inst].clocks;
                 break;
             }
         }
@@ -158,14 +157,10 @@ function findClocksSizes(text, json) {
     return {clocks, sizes};
 }
 
-function splitLine(string) {
-    if (string.indexOf('\t') == -1) {
-        let space = min_tab_space + min_tab_space;
-        // console.log(space);
-        return string.split(space);
-    } else {
-        return string.split('\t');
-    }
+function splitLine(string) {;
+    // console.log(space);
+    const reg = /\s+/;
+    return string.split(reg);
 }
 
 // function checkTabsOrSpaces(line);
@@ -291,8 +286,7 @@ function enableGroupTab(id) {
 }
 
 function listOf(subline, symb, from, firstIndex) {
-    let indList = [],
-        start = 0
+    let indList = []
 
     if (firstIndex != -1) indList.push(firstIndex);
 
