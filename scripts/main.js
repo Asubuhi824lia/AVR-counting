@@ -63,6 +63,39 @@ $(".emptyness").css('height', function() {
     return $(".options").css('height')
 })
 
+
+$('#file-selector').on('change', (e) => {
+
+    // сохраним в переменную files значение свойства files
+    const files = e.target.files;
+
+    // сохраним количество элементов в files в переменную countFiles
+    const countFiles = files.length;
+    // если количество выбранных файлов больше 0
+    if (!countFiles) {
+        alert('Не выбран файл!');
+        console.log( $("input[type='file']").val() )
+        return;
+    }
+
+    // присваиваем переменной selectedFile ссылку на выбранный файл
+    const selectedFile = files[0];
+        
+    // считать содержимое выбранного файла
+    const reader = new FileReader();
+    reader.readAsText(selectedFile);
+
+    reader.onload = function() {
+        $("#textarea").val(reader.result)
+    };
+    
+    reader.onerror = function() {
+        console.log(reader.error);
+    };
+
+});
+
+
 // Base functions
 
 function addNums(json) {
